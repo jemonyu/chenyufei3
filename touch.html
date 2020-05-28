@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Document</title>
+    <style>
+        #touchLog{
+            width: 100%;
+            height: 1000px;
+            background-color: tan;
+        }
+    </style>
+</head>
+<body>
+    <div id="touchLog"></div>
+
+    <script>
+        window.addEventListener("touchstart",function(){
+            console.log("你摸到我了");
+        });
+
+        window.addEventListener("touchmove",function(){
+            console.log("你滑动页面了");
+        });
+        window.addEventListener("touchend",function(){
+            console.log("触摸事件结束了")
+        })
+
+        function showMsg(ev){
+            //console.log(ev.touches)
+            console.log(ev.targetTouches)
+        }
+
+
+        function bubblesort(arr){
+            //外层控制循环次数
+            for(var i =0; i<arr.length-1; i++){
+
+                for(var j=0; j<arr.length-i;j++){
+                    if(arr[j]<arr[j+1]){
+                        var tmp = arr[j+1];
+
+                        arr[j+1] = arr[j];
+
+                        arr[j] = tmp;
+                    }
+                }
+            }
+            console.log(arr);
+            return arr;
+        }
+
+        var element = [3,5,1,2,7,8,4,5,3,4];
+
+        var arr1 = bubblesort(element);
+
+       // console.log(arr1);
+
+    </script>
+</body>
+</html>
